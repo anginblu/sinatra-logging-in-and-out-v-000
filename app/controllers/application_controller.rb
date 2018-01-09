@@ -13,6 +13,8 @@ class ApplicationController < Sinatra::Base
   post '/login' do
     if User.find_by[username: params[:username], password: params[:password]] !=nil
       @current_user = User.find_by[username: params[:username], password: params[:password]]
+      session[:user_id] = @current_user.id
+
     else
     session[:user_id] = @current_user.id
   end
