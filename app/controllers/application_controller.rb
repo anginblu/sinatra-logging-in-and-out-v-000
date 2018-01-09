@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
   post '/login' do
     @username = params[:username]
     @password = params[:password]
-    
+    session[:user_id] = @username
   end
 
   get '/account' do
