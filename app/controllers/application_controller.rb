@@ -11,8 +11,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-    @username = params[:username]
-    @password = params[:password]
+    @current_user = User.find_by[username: params[:username], password: params[:password]]
     session[:user_id] = @username
   end
 
